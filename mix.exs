@@ -8,6 +8,7 @@ defmodule ExAwsAcm.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      dialyzer: dialyzer(),
       package: package()
     ]
   end
@@ -37,6 +38,12 @@ defmodule ExAwsAcm.MixProject do
       { :hackney, "~> 1.16", only: [:dev, :test] },
 
       { :jason, "~> 1.2", only: [:dev, :test] }
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "_build/#{Mix.env()}"
     ]
   end
 
