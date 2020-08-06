@@ -22,7 +22,19 @@ defmodule ExAwsAcm.MixProject do
     [
       { :ex_aws, "~> 2.0" },
 
-      { :ex_doc, ">= 0.0.0", only: :dev }
+      #
+      # dev
+      #
+
+      { :ex_doc, ">= 0.0.0", only: :dev },
+
+      #
+      # dev,test
+      #
+
+      { :hackney, "~> 1.16", only: [:dev, :test] },
+
+      { :jason, "~> 1.2", only: [:dev, :test] }
     ]
   end
 
