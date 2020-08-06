@@ -19,7 +19,9 @@ defmodule ExAwsAcm.MixProject do
 
   defp deps do
     [
-      { :ex_aws, "~> 2.0" }
+      { :ex_aws, "~> 2.0" },
+
+      { :ex_doc, ">= 0.0.0", only: :dev }
     ]
   end
 end
