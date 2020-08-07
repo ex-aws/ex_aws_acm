@@ -60,6 +60,9 @@ defmodule ExAws.ACM do
   @type tags ::
           [%{ key: String.t(), value: String.t() }]
 
+  @doc """
+  Adds one or more tags to an ACM certificate.
+  """
   @spec add_tags_to_certificate(certificate_arn, tags) :: ExAws.Operation.JSON.t()
   def add_tags_to_certificate(certificate_arn, tags) do
     params = Keyword.new()
@@ -69,16 +72,25 @@ defmodule ExAws.ACM do
     request(:add_tags_to_certificate, params)
   end
 
+  @doc """
+  Deletes a certificate and its associated private key.
+  """
   @spec delete_certificate(certificate_arn) :: ExAws.Operation.JSON.t()
   def delete_certificate(certificate_arn) do
     request(:delete_certificate, %{ CertificateArn: certificate_arn })
   end
 
+  @doc """
+  Returns detailed metadata about the specified ACM certificate.
+  """
   @spec describe_certificate(certificate_arn) :: ExAws.Operation.JSON.t()
   def describe_certificate(certificate_arn) do
     request(:describe_certificate, %{ CertificateArn: certificate_arn })
   end
 
+  @doc """
+  Exports a private certificate issued by a private certificate authority (CA).
+  """
   @spec export_certificate(certificate_arn, binary) :: ExAws.Operation.JSON.t()
   def export_certificate(certificate_arn, passphrase) do
     params = Keyword.new()
@@ -88,11 +100,18 @@ defmodule ExAws.ACM do
     request(:export_certificate, params)
   end
 
+  @doc """
+  Retrieves an Amazon-issued certificate and its certificate chain.
+  """
   @spec get_certificate(certificate_arn) :: ExAws.Operation.JSON.t()
   def get_certificate(certificate_arn) do
     request(:get_certificate, [CertificateArn: certificate_arn])
   end
 
+  @doc """
+  Imports a certificate into AWS Certificate Manager (ACM) to use with services
+  that are integrated with ACM.
+  """
   @spec import_certificate(binary, binary, import_certificate_opts) :: ExAws.Operation.JSON.t()
   def import_certificate(certificate, private_key, opts \\ []) do
     params = Keyword.new()
@@ -103,16 +122,25 @@ defmodule ExAws.ACM do
     request(:import_certificate, params)
   end
 
+  @doc """
+  Retrieves a list of certificate ARNs and domain names.
+  """
   @spec list_certificates(list_certificates_opts) :: ExAws.Operation.JSON.t()
   def list_certificates(opts \\ []) do
     request(:list_certificates, opts)
   end
 
+  @doc """
+  Lists the tags that have been applied to the ACM certificate.
+  """
   @spec list_tags_for_certificate(certificate_arn) :: ExAws.Operation.JSON.t()
   def list_tags_for_certificate(certificate_arn) do
     request(:list_tags_for_certificate, [CertificateArn: certificate_arn])
   end
 
+  @doc """
+  Remove one or more tags from an ACM certificate.
+  """
   @spec remove_tags_from_certificate(certificate_arn, tags) :: ExAws.Operation.JSON.t()
   def remove_tags_from_certificate(certificate_arn, tags) do
     params = Keyword.new()
@@ -122,11 +150,18 @@ defmodule ExAws.ACM do
     request(:remove_tags_from_certificate, params)
   end
 
+  @doc """
+  Renews an eligable ACM certificate. At this time, only exported private
+  certificates can be renewed with this operation.
+  """
   @spec renew_certificate(String.t()) :: ExAws.Operation.JSON.t()
   def renew_certificate(certificate_arn) do
     request(:renew_certificate, [CertificateArn: certificate_arn])
   end
 
+  @doc """
+  Requests an ACM certificate for use with other AWS services.
+  """
   @spec request_certificate(certificate_arn, request_certificate_opts) :: ExAws.Operation.JSON.t()
   def request_certificate(domain_name, opts \\ []) do
     params = Keyword.new()
@@ -136,6 +171,9 @@ defmodule ExAws.ACM do
     request(:request_certificate, params)
   end
 
+  @doc """
+  Resends the email that requests domain ownership validation.
+  """
   @spec resend_validation_email(certificate_arn, String.t(), String.t()) :: ExAws.Operation.JSON.t()
   def resend_validation_email(certificate_arn, domain, validation_domain) do
     params = Keyword.new()
@@ -152,6 +190,9 @@ defmodule ExAws.ACM do
     "#{@namespace}.#{name}"
   end
 
+  @doc """
+  Updates a certificate.
+  """
   @spec update_certificate_options(certificate_arn, certificate_options) :: ExAws.Operation.JSON.t()
   def update_certificate_options(certificate_arn, options) do
     params = Keyword.new()
