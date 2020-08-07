@@ -35,7 +35,7 @@ defmodule ExAws.ACM do
           [
             certificate_arn: certificate_arn,
             certificate_chain: binary,
-            tags: tags
+            tags: [tag]
           ]
 
   @type list_certificates_opts ::
@@ -53,17 +53,17 @@ defmodule ExAws.ACM do
           idempotency_token: String.t(),
           options: certificate_options,
           subject_alternative_names: [String.t()],
-          tags: tags,
+          tags: [tag],
           validation_method: String.t()
         ]
 
-  @type tags ::
-          [%{ key: String.t(), value: String.t() }]
+  @type tag ::
+          %{ key: String.t(), value: String.t() }
 
   @doc """
   Adds one or more tags to an ACM certificate.
   """
-  @spec add_tags_to_certificate(certificate_arn, tags) :: ExAws.Operation.JSON.t()
+  @spec add_tags_to_certificate(certificate_arn, [tag]) :: ExAws.Operation.JSON.t()
   def add_tags_to_certificate(certificate_arn, tags) do
     params = Keyword.new()
     params = Keyword.put(params, :CertificateArn, certificate_arn)
@@ -141,7 +141,7 @@ defmodule ExAws.ACM do
   @doc """
   Remove one or more tags from an ACM certificate.
   """
-  @spec remove_tags_from_certificate(certificate_arn, tags) :: ExAws.Operation.JSON.t()
+  @spec remove_tags_from_certificate(certificate_arn, [tag]) :: ExAws.Operation.JSON.t()
   def remove_tags_from_certificate(certificate_arn, tags) do
     params = Keyword.new()
     params = Keyword.put(params, :CertificateArn, certificate_arn)
