@@ -52,7 +52,7 @@ defmodule ExAwsAcm.MixProject do
       description: "ACM service package",
       files: ["lib", "config", "mix.exs", "README*"],
       licenses: ["MIT"],
-      links: %{ GitHub: "https://github.com/malomohq/ex_aws_acm" },
+      links: %{ GitHub: "https://github.com/ex-aws/ex_aws_acm" },
       maintainers: ["Anthony Smith"]
     ]
   end
