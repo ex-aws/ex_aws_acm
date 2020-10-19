@@ -16,7 +16,7 @@ jobs:
 
           path: _build
 
-      - uses: actions/setup-elixir@v1.2.0
+      - uses: actions/setup-elixir@v1
 
         with:
           elixir-version: ${{ matrix.elixir }}
@@ -55,7 +55,7 @@ jobs:
 
           path: _build
 
-      - uses: actions/setup-elixir@v1.2.0
+      - uses: actions/setup-elixir@v1
 
         with:
           elixir-version: ${{ matrix.elixir }}
