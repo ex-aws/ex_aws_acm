@@ -2,6 +2,10 @@
 
 Service module for [https://github.com/ex-aws/ex_aws](https://github.com/ex-aws/ex_aws)
 
+## Archived
+
+This repository has been archived. Please see `ex-aws/ex_aws_acm`.
+
 ## Installation
 
 The package can be installed by adding `ex_aws_acm` to your list of dependencies in `mix.exs` along with `:ex_aws` and your preferred JSON codec / http client
